@@ -35,8 +35,6 @@ You have:
 inv = {}
 items = ["food", "water", "rope", "torch", "sack", "wood", "iron", "steel", "ginger", "garlic", "fish", "stone", "wool"]
 
-print("COMMAND LIST:\n>get (amount) (item)\n>drop (amount) (item)\n>inventory\n(leave amount empty if 1)")
-
 while True:
     command = input("Command: ")
     commandList = command.split(" ")
@@ -63,22 +61,29 @@ while True:
 
     elif commandList[0] == ">drop":
         if len(commandList) == 3: #checks to see if the amount is specified in the command
-            if commandList[2] in inv: #checks to see if the item is already in the inventory
+            if commandList[2] in inv: #checks to see if the item is in the inventory
                 inv[commandList[2]] -= commandList[1] #if it is then it removes the amount specified from the dictionary
             else:
                 print(f"you dont have any {commandList[2]} to drop")
         if len(commandList) == 2:
             if commandList[1] in items: #checks to see if the item exists in the list of possible items
-                if commandList[1] in inv: #checks to see if the item is already in the inventory
-                    inv[commandList[1]] += 1 #adds one to the amount if the item already exists in the inventory
+                if commandList[1] in inv: #checks to see if the item is in the inventory
+                    inv[commandList[1]] -= 1 #removes one of the item from the inventory
                 else:
-                    inv[commandList[1]] = 1 #if the item isn't in the inventory then it just creates the item and its amount in the inventory
+                    print(f"you dont have any {commandList[1]} to drop")
             else:
                 print("Item does not exist")
         else:
             print("invalid command")
 
     elif commandList[0] == ">inventory":
+        if len(inv) == 0:
+            print("You have nothing in your inventory")
+        else:
+            print(inv)
+    
+    elif commandList[0] == ">help":
+        print("COMMAND LIST:\n>get (amount) (item)\n>drop (amount) (item)\n>inventory\n(leave amount empty if 1)")
     
     else:
         print("command not recognized")
