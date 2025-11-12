@@ -106,7 +106,7 @@ while True:
             print(f"---------------\n|  Inventory  |")
             for i in items:
                 if i in inv:
-                    print(f"|    {'{i}: {inv[i]}'}  |")
+                    print(f"|{(f'{i}: {inv[i]}'):^{15}}|")
             print("---------------")
     
     elif commandList[0] == ">help":
