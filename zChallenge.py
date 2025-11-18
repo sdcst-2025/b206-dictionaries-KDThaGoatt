@@ -20,5 +20,5 @@ if the number generated is 1 (True)
 it will append a random integer from 1 to 10 to the list
 if the number generated is 0 (False)
 it will append a random integer from 1 to 10 plus a random integer from 1 to 10 divided by 10, making a decimal
-basically this code generates a list of 40 random numbers with a 50/50 chance of each number being a decimal
+basically this code generates a list of 40 random numbers from 1 to 10 with a 50/50 chance of each number being a decimal
 '''
